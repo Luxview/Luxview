@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:fluttericon/typicons_icons.dart';
+import 'package:luxview/Custom/Themes.dart';
+import 'package:luxview/Pages/Messages.dart';
+import 'package:flutter/scheduler.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -8,30 +11,55 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  int _index = 0;
+  int _currentIndex = 0;
+  Widget _currentWidget = Container();
+
+  @override
+  void initState() {
+    super.initState();
+    _Screen();
+  }
+
+  void _Screen() {
+    switch (_currentIndex) {
+      case 0:
+        break;
+      // Messages
+      case 1:
+        break;
+      //  Themes
+      case 2:
+        break;
+      //  Plugins
+      case 3:
+        break;
+      //  Profile
+      case 4:
+        break;
+      //  Settings
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        child: const Center(child: Text("Chat")),
-      ),
+      body: _currentWidget,
       bottomNavigationBar: BottomNavigationBar(
-          currentIndex: _index,
-          onTap: (newIndex) {
-            setState(() {
-              _index = newIndex;
+          currentIndex: _currentIndex,
+          onTap: (index) {
+            SchedulerBinding.instance.addPostFrameCallback((_) {
+              setState(() => _currentIndex = index);
             });
+            _Screen();
           },
-          backgroundColor: Colors.black,
-          selectedItemColor: Colors.blueGrey,
+          backgroundColor: bottomnavbar_bgc,
+          selectedItemColor: bottomnavbar_selcol,
           unselectedItemColor: Colors.blue,
-          selectedLabelStyle: const TextStyle(fontWeight: FontWeight.w600),
-          unselectedLabelStyle: const TextStyle(fontWeight: FontWeight.w600),
           type: BottomNavigationBarType.fixed,
           items: const [
             BottomNavigationBarItem(
               icon: Icon(Icons.message),
-              label: "Home",
+              label: "Messages",
             ),
             BottomNavigationBarItem(icon: Icon(Icons.brush), label: "Themes"),
             BottomNavigationBarItem(
