@@ -2,7 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:fluttericon/typicons_icons.dart';
 import 'package:luxview/Custom/Themes.dart';
 import 'package:luxview/Pages/Messages.dart';
-import 'package:flutter/scheduler.dart';
+import 'package:luxview/Pages/Plugins.dart';
+import 'package:luxview/Pages/Profile.dart';
+import 'package:luxview/Pages/Settings.dart';
+import 'package:luxview/Pages/Themes.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -15,42 +18,33 @@ class _HomePageState extends State<HomePage> {
   Widget _currentWidget = Container();
 
   @override
-  void initState() {
-    super.initState();
-    _Screen();
-  }
-
-  void _Screen() {
+  Widget build(BuildContext context) {
+    Widget _currentWidget = HomePage();
     switch (_currentIndex) {
       case 0:
+        _currentWidget = MessagePage(); //Messages
         break;
-      // Messages
       case 1:
+        _currentWidget = ThemesPage(); //Themes
         break;
-      //  Themes
       case 2:
+        _currentWidget = PluginsPage(); //Plugins
         break;
-      //  Plugins
       case 3:
+        _currentWidget = ProfilePage(); //Profile
         break;
-      //  Profile
       case 4:
+        _currentWidget = SettingsPage(); //Settings
         break;
-      //  Settings
     }
-  }
-
-  @override
-  Widget build(BuildContext context) {
     return Scaffold(
       body: _currentWidget,
       bottomNavigationBar: BottomNavigationBar(
           currentIndex: _currentIndex,
           onTap: (index) {
-            SchedulerBinding.instance.addPostFrameCallback((_) {
+            WidgetsBinding.instance.addPostFrameCallback((_) {
               setState(() => _currentIndex = index);
             });
-            _Screen();
           },
           backgroundColor: bottomnavbar_bgc,
           selectedItemColor: bottomnavbar_selcol,
