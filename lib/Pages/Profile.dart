@@ -11,7 +11,7 @@ class _ProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: universal_bgc,
+      color: scaffold_bgc,
     );
   }
 }

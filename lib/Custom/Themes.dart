@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-// Universal page colorset
-var universal_bgc = Colors.black;
+// Scaffold colorset
+var scaffold_bgc = Colors.white;
 
 // Bottom Navigation Panel colorset
 var bottomnavbar_bgc = Colors.black;
