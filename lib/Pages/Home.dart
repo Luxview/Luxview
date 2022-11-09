@@ -1,11 +1,11 @@
-import 'package:flutter/material.dart';
-import 'package:fluttericon/typicons_icons.dart';
-import 'package:luxview/Custom/Themes.dart';
-import 'package:luxview/Pages/Messages.dart';
-import 'package:luxview/Pages/Plugins.dart';
-import 'package:luxview/Pages/Profile.dart';
-import 'package:luxview/Pages/Settings.dart';
-import 'package:luxview/Pages/Themes.dart';
+import "package:flutter/material.dart";
+import "package:fluttericon/typicons_icons.dart";
+import "package:luxview/Management/ThemeManger.dart";
+import "package:luxview/Pages/Messages.dart";
+import "package:luxview/Pages/Plugins.dart";
+import "package:luxview/Pages/Profile.dart";
+import "package:luxview/Pages/Settings.dart";
+import "package:luxview/Pages/Themes.dart";
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -15,26 +15,26 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   int _currentIndex = 0;
-  Widget _currentWidget = Container();
+  final Widget _currentWidget = Container();
 
   @override
   Widget build(BuildContext context) {
-    Widget _currentWidget = HomePage();
+    Widget _currentWidget = const HomePage();
     switch (_currentIndex) {
       case 0:
-        _currentWidget = MessagePage(); //Messages
+        _currentWidget = const MessagePage(); //Messages
         break;
       case 1:
-        _currentWidget = ThemesPage(); //Themes
+        _currentWidget = const ThemesPage(); //Themes
         break;
       case 2:
-        _currentWidget = PluginsPage(); //Plugins
+        _currentWidget = const PluginsPage(); //Plugins
         break;
       case 3:
-        _currentWidget = ProfilePage(); //Profile
+        _currentWidget = const ProfilePage(); //Profile
         break;
       case 4:
-        _currentWidget = SettingsPage(); //Settings
+        _currentWidget = const SettingsPage(); //Settings
         break;
     }
     return Scaffold(
@@ -46,8 +46,7 @@ class _HomePageState extends State<HomePage> {
               setState(() => _currentIndex = index);
             });
           },
-          backgroundColor: bottomnavbar_bgc,
-          selectedItemColor: bottomnavbar_selcol,
+          selectedItemColor: Colors.blueGrey,
           unselectedItemColor: Colors.blue,
           type: BottomNavigationBarType.fixed,
           items: const [

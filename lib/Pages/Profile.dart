@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
-import 'package:luxview/Custom/Themes.dart';
+import "package:flutter/material.dart";
+import "package:luxview/Management/ThemeManger.dart";
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});
@@ -10,8 +10,6 @@ class ProfilePage extends StatefulWidget {
 class _ProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: scaffold_bgc,
-    );
+    return Scaffold();
   }
 }

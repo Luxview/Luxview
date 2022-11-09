@@ -1,29 +1,25 @@
-import 'package:flutter/material.dart';
-import 'package:adaptive_theme/adaptive_theme.dart';
-import 'package:luxview/Pages/Home.dart';
+import "package:flutter/material.dart";
+import "package:luxview/Management/ThemeManger.dart";
+import "package:luxview/Pages/Home.dart";
+import "package:provider/provider.dart";
 
 void main() {
-  runApp(Luxview());
+  return runApp(ChangeNotifierProvider<ThemeNotifier>(
+    create: (_) => ThemeNotifier(),
+    child: const Luxview(),
+  ));
 }
 
 class Luxview extends StatelessWidget {
+  const Luxview({super.key});
   @override
   Widget build(BuildContext context) {
-    return AdaptiveTheme(
-        light: ThemeData(
-            brightness: Brightness.light,
-            backgroundColor: Color(0xFFFFFFFF),
-            scaffoldBackgroundColor: const Color(0xFFFFFFFF)),
-        dark: ThemeData(
-            brightness: Brightness.dark,
-            backgroundColor: const Color(0xFF000000),
-            scaffoldBackgroundColor: const Color(0xFF000000)),
-        initial: AdaptiveThemeMode.light,
-        builder: (theme, darkTheme) => MaterialApp(
-              title: 'Luxview',
-              theme: ThemeData(),
+    return Consumer<ThemeNotifier>(
+        builder: (context, theme, child) => MaterialApp(
+              title: "Luxview",
+              theme: theme.getTheme(),
+              home: const HomePage(),
               debugShowCheckedModeBanner: false,
-              home: HomePage(),
             ));
   }
 }

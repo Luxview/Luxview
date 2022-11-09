@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
-import 'package:luxview/Custom/Themes.dart';
+import "package:flutter/material.dart";
+import "package:luxview/Management/ThemeManger.dart";
 
 class MessagePage extends StatefulWidget {
   const MessagePage({super.key});
@@ -10,8 +10,6 @@ class MessagePage extends StatefulWidget {
 class _MessagePageState extends State<MessagePage> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: scaffold_bgc,
-    );
+    return Scaffold();
   }
 }

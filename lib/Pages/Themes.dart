@@ -1,5 +1,6 @@
-import 'package:flutter/material.dart';
-import 'package:luxview/Custom/Themes.dart';
+import "package:flutter/material.dart";
+import "package:luxview/Management/ThemeManger.dart";
+import 'package:provider/provider.dart';
 
 class ThemesPage extends StatefulWidget {
   const ThemesPage({super.key});
@@ -10,8 +11,31 @@ class ThemesPage extends StatefulWidget {
 class _ThemesPageState extends State<ThemesPage> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: scaffold_bgc,
+    return Consumer<ThemeNotifier>(
+      builder: (context, theme, _) => MaterialApp(
+        theme: theme.getTheme(),
+        home: Scaffold(
+          appBar: AppBar(
+            title: const Text("Themes"),
+          ),
+          body: Row(
+            children: [
+              TextButton(
+                onPressed: () => {
+                  theme.setLightMode(),
+                },
+                child: const Text("Light Theme"),
+              ),
+              TextButton(
+                onPressed: () => {
+                  theme.setDarkMode(),
+                },
+                child: const Text("Dark theme"),
+              ),
+            ],
+          ),
+        ),
+      ),
     );
   }
 }
