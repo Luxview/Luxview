@@ -1,5 +1,4 @@
 import "package:flutter/material.dart";
-import "package:luxview/Management/ThemeManger.dart";
 
 class PluginsPage extends StatefulWidget {
   const PluginsPage({super.key});

@@ -1,6 +1,5 @@
 import "package:flutter/material.dart";
 import "package:fluttericon/typicons_icons.dart";
-import "package:luxview/Management/ThemeManger.dart";
 import "package:luxview/Pages/Messages.dart";
 import "package:luxview/Pages/Plugins.dart";
 import "package:luxview/Pages/Profile.dart";
