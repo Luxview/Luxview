@@ -7,18 +7,89 @@ import 'package:requests/requests.dart';
 //it does not however want to directly utilize the token from the datamanager as it isn't in the correct format.
 //Will fix later on.
 
-//usertoken = DataManager.readData("usertoken");
+//var usertoken = DataManager.readData("d_usertoken");
 
-var usertoken =
-    ""; //putting a token in the quotes will get a 200 status code returned as long as the token is valid.
+class discordapi {
+  static dynamic user_data(String usertoken) async {
+    var response = await Requests.get("https://discord.com/api/v9/users/@me",
+        headers: {
+          "authorization": usertoken,
+          "content-type": "application/json"
+        });
+    if (response.statusCode == 200) {
+      return response.json();
+    } else {
+      Exception(response.statusCode);
+    }
+  }
 
-void discordapi() async {
-  var url = "https://discord.com/api/v9/users/@me";
-  var header = {"authorization": usertoken, "content-type": "application/json"};
-  var response = await Requests.get(url, headers: header);
-  if (response.statusCode == 200) {
-    var jsonResponse = response.json();
-  } else {
-    Exception(response.statusCode);
+  static Future<dynamic> user_dm(String usertoken) async {
+    var response = await Requests.get(
+        "https://discord.com/api/v9/users/@me/channels",
+        headers: {
+          "authorization": usertoken,
+          "content-type": "application/json"
+        });
+    if (response.statusCode == 200) {
+      return response.json();
+    } else {
+      Exception(response.statusCode);
+    }
+  }
+
+  static Future<dynamic> user_servers(String usertoken) async {
+    var response = await Requests.get(
+        "https://discord.com/api/v9/users/@me/guilds",
+        headers: {
+          "authorization": usertoken,
+          "content-type": "application/json"
+        });
+    if (response.statusCode == 200) {
+      return response.json();
+    } else {
+      Exception(response.statusCode);
+    }
+  }
+
+  static Future<dynamic> user_friends(String usertoken) async {
+    var response = await Requests.get(
+        "https://discord.com/api/v9/users/@me/relationships",
+        headers: {
+          "authorization": usertoken,
+          "content-type": "application/json"
+        });
+    if (response.statusCode == 200) {
+      return response.json();
+    } else {
+      Exception(response.statusCode);
+    }
+  }
+
+  static Future<dynamic> user_gifts(String usertoken) async {
+    var response = await Requests.get(
+        "https://discord.com/api/v9/users/@me/entitlements/gifts",
+        headers: {
+          "authorization": usertoken,
+          "content-type": "application/json"
+        });
+    if (response.statusCode == 200) {
+      return response.json();
+    } else {
+      Exception(response.statusCode);
+    }
+  }
+
+  static Future<dynamic> user_profile(String usertoken, String id) async {
+    var response = await Requests.get(
+        "https://discord.com/api/v9/users/@me/$id/profile",
+        headers: {
+          "authorization": usertoken,
+          "content-type": "application/json"
+        });
+    if (response.statusCode == 200) {
+      return response.json();
+    } else {
+      Exception(response.statusCode);
+    }
   }
 }

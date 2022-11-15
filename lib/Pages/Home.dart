@@ -4,7 +4,7 @@ import "package:luxview/Pages/Messages.dart";
 import "package:luxview/Pages/Plugins.dart";
 import "package:luxview/Pages/Profile.dart";
 import "package:luxview/Pages/Settings.dart";
-import "package:luxview/Pages/Themes.dart";
+import 'package:luxview/Pages/Themes.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
