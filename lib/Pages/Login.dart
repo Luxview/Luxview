@@ -1,36 +1,12 @@
 import "package:flutter/material.dart";
 import 'package:luxview/Management/DataManager.dart';
-
-class LoginPage extends StatefulWidget {
-  const LoginPage({super.key});
-  @override
-  _LoginPageState createState() => _LoginPageState();
-}
-
-class _LoginPageState extends State<LoginPage> {
-  @override
-  Widget build(BuildContext context) {
-    const appTitle = 'Login';
-
-    return MaterialApp(
-      title: appTitle,
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text(appTitle),
-        ),
-        body: const LoginForm(),
-      ),
-    );
-  }
-}
+import 'package:luxview/Pages/Home.dart';
+import 'package:luxview/Management/Global.dart' as global;
 
 class LoginForm extends StatefulWidget {
   const LoginForm({super.key});
-
   @override
-  LoginFormState createState() {
-    return LoginFormState();
-  }
+  LoginFormState createState() => LoginFormState();
 }
 
 class LoginFormState extends State<LoginForm> {
@@ -42,7 +18,7 @@ class LoginFormState extends State<LoginForm> {
     return Form(
       key: _formKey,
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           TextFormField(
             validator: (value) {
@@ -58,7 +34,12 @@ class LoginFormState extends State<LoginForm> {
             child: ElevatedButton(
               onPressed: () {
                 if (_formKey.currentState!.validate()) {
-                  DataManager.saveData("usertoken", logincontroller.text);
+                  //DataManager.saveData("d_usertoken", logincontroller.text.toString());
+                  global.isLoggedIn = true;
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const HomePage()));
                 }
               },
               child: const Text('Submit'),

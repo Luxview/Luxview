@@ -14,7 +14,7 @@ class DataManager {
     }
   }
 
-  static Future<dynamic> readData(String key) async {
+  static dynamic readData(String key) async {
     final prefs = await SharedPreferences.getInstance();
     dynamic obj = prefs.get(key);
     return obj;
