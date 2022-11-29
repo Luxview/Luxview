@@ -1,7 +1,6 @@
 import "package:flutter/material.dart";
 import "package:luxview/Management/ThemeManger.dart";
 import 'package:luxview/Pages/Home.dart';
-import 'package:luxview/Pages/Login.dart';
 import "package:provider/provider.dart";
 
 void main() {
