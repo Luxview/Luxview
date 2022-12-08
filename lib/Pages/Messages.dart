@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:luxview/Management/global.dart' as global;
+import 'package:luxview/Management/global.dart';
 import 'package:luxview/Pages/Login.dart';
 
 class MessagePage extends StatefulWidget {
@@ -17,23 +17,32 @@ var d_userservers = {
 class _MessagePageState extends State<MessagePage> {
   @override
   Widget build(BuildContext context) {
-    if (global.isLoggedIn) {
+    if (isLoggedIn) {
       return Scaffold(
-        body: Container(
-          child: Column(
-            children: <Widget>[
-              Expanded(
-                child: ListView(
-                  children: <Widget>[
-                    for (var i = 0; i < d_userservers.length; i++)
-                      ListTile(
-                        title: Text(d_userservers.keys.elementAt(i)),
-                        subtitle: Text(d_userservers.values.elementAt(i)),
-                      ),
-                  ],
-                ),
-              ),
-            ],
+        appBar: AppBar(
+          elevation: 4,
+          centerTitle: true,
+          automaticallyImplyLeading: false,
+          shape: const RoundedRectangleBorder(
+            borderRadius: BorderRadius.zero,
+          ),
+          title: const Text(
+            "Messages",
+            style: TextStyle(
+              fontWeight: FontWeight.w700,
+              fontStyle: FontStyle.normal,
+              fontSize: 20,
+            ),
+          ),
+        ),
+        body: const Center(
+          child: Text(
+            "Work in progress",
+            style: TextStyle(
+              fontWeight: FontWeight.w700,
+              fontStyle: FontStyle.normal,
+              fontSize: 35,
+            ),
           ),
         ),
       );

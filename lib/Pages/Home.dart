@@ -14,8 +14,6 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   int _currentIndex = 0;
-  final Widget _currentWidget = Container();
-
   @override
   Widget build(BuildContext context) {
     Widget _currentWidget = const HomePage();
@@ -46,7 +44,7 @@ class _HomePageState extends State<HomePage> {
             });
           },
           selectedItemColor: Colors.blueGrey,
-          unselectedItemColor: Colors.blue,
+          unselectedItemColor: const Color(0xff3a57e8),
           type: BottomNavigationBarType.fixed,
           items: const [
             BottomNavigationBarItem(

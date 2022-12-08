@@ -16,7 +16,20 @@ class _ThemesPageState extends State<ThemesPage> {
         theme: theme.getTheme(),
         home: Scaffold(
           appBar: AppBar(
-            title: const Text("Themes"),
+            elevation: 4,
+            centerTitle: true,
+            automaticallyImplyLeading: false,
+            shape: const RoundedRectangleBorder(
+              borderRadius: BorderRadius.zero,
+            ),
+            title: const Text(
+              "Themes",
+              style: TextStyle(
+                fontWeight: FontWeight.w700,
+                fontStyle: FontStyle.normal,
+                fontSize: 20,
+              ),
+            ),
           ),
           body: Row(
             children: [
@@ -32,6 +45,12 @@ class _ThemesPageState extends State<ThemesPage> {
                 },
                 child: const Text("Dark theme"),
               ),
+              TextButton(
+                onPressed: () => {
+                  theme.setCustomMode(),
+                },
+                child: const Text("Custom theme (WIP)"),
+              )
             ],
           ),
         ),

@@ -1,7 +1,20 @@
-library luxiew.global;
-
+//Univeral variables
 bool isLoggedIn = false;
-var usertoken =
-    ""; //putting a token in the quotes will get a 200 status code returned as long as the token is valid.
-var d_profiledata = {};
-var d_userdata = "";
+
+//Theme variables
+var primarySwatchCustom;
+var primaryColorCustom;
+var backgroundColorCustom;
+var dividerColorCustom;
+var caffoldBackgroundColorcustom;
+var iconThemeCustom;
+var appBarThemeCustom;
+
+//Discord variables
+var d_usertoken = "";
+var d_username = "user";
+var d_email = "example@example.com";
+var d_phone = "###-###-####";
+var d_profileimg =
+    "https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png";
+var d_profilestatus = "status";
