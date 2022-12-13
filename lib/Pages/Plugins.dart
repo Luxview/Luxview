@@ -1,4 +1,5 @@
 import "package:flutter/material.dart";
+import 'package:luxview/Management/pluginManager.dart';
 
 class PluginsPage extends StatefulWidget {
   const PluginsPage({super.key});
@@ -26,14 +27,12 @@ class _PluginsPageState extends State<PluginsPage> {
           ),
         ),
       ),
-      body: const Center(
-        child: Text(
-          "Work in progress",
-          style: TextStyle(
-            fontWeight: FontWeight.w700,
-            fontStyle: FontStyle.normal,
-            fontSize: 35,
-          ),
+      body: Center(
+        child: TextButton(
+          onPressed: () {
+            loader();
+          },
+          child: const Text("Load Plugins"),
         ),
       ),
     );
