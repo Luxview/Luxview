@@ -30,7 +30,7 @@ class _PluginsPageState extends State<PluginsPage> {
       body: Center(
         child: TextButton(
           onPressed: () {
-            loader();
+            //loader();
           },
           child: const Text("Load Plugins"),
         ),

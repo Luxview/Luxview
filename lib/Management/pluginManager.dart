@@ -1,8 +1,8 @@
 import 'dart:io';
 import 'package:reflectable/reflectable.dart';
 
-//Prototype loader. Untested as of now due to the lack of anything to test on.
-
+//Prototype loader. causes build errors. do not use
+/*
 @Reflectable()
 class Reflector extends Reflectable {
   const Reflector() : super(invokingCapability);
@@ -23,3 +23,4 @@ void loader() {
     }
   }
 }
+*/
